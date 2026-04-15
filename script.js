@@ -27,84 +27,84 @@
 
         const fallbackProducts = [
             {
-                img: "https://via.placeholder.com/400x300.png?text=Tensiomètre+Manuel",
+                img: "assets/img/Tensiomètre manuel.jpg",
                 nom: "Tensiomètre Manuel",
                 categorie: "Matériel Médical",
                 description: "Appareil manuel pour mesurer la pression artérielle avec précision.",
                 prix: "49,99 €"
             },
             {
-                img: "https://via.placeholder.com/400x300.png?text=Tensiomètre+Electronique",
+                img: "assets/img/Tensiomètre manuel.jpg",
                 nom: "Tensiomètre Electronique",
                 categorie: "Matériel Médical",
                 description: "Mesure automatique de la tension artérielle en quelques secondes.",
                 prix: "79,99 €"
             },
             {
-                img: "https://via.placeholder.com/400x300.png?text=Oxymètre",
+                img: "assets/img/OxymètreSaturometre.jpg",
                 nom: "Oxymètre",
                 categorie: "Matériel Médical",
                 description: "Mesure la saturation en oxygène du sang et le pouls.",
                 prix: "34,50 €"
             },
             {
-                img: "https://via.placeholder.com/400x300.png?text=Penlight+Médical",
+                img: "assets/img/Penlight rechargeable.jpg",
                 nom: "Penlight Médical",
                 categorie: "Accessoires Médicaux",
                 description: "Lampe compacte pour les examens médicaux de précision.",
                 prix: "12,00 €"
             },
             {
-                img: "https://via.placeholder.com/400x300.png?text=Stéthoscope+Double+Foyer",
+                img: "assets/img/Otoscope.jpg",
                 nom: "Stéthoscope Double Foyer",
                 categorie: "Accessoires Médicaux",
                 description: "Instrument professionnel pour écouter les sons du cœur et des poumons.",
                 prix: "89,90 €"
             },
             {
-                img: "https://via.placeholder.com/400x300.png?text=Glucomètre+Complet",
+                img: "assets/img/Glucometre complet.jpg",
                 nom: "Glucomètre Complet",
                 categorie: "Équipements Médicaux",
                 description: "Kit complet pour mesurer la glycémie avec résultats rapides.",
                 prix: "69,90 €"
             },
             {
-                img: "https://via.placeholder.com/400x300.png?text=Blouse+Manche+Longue",
+                img: "assets/img/Surblouse.jpg",
                 nom: "Blouse Manche Longue",
                 categorie: "Vêtements Professionnels",
                 description: "Blouse médicale confortable et résistante pour usage quotidien.",
                 prix: "39,99 €"
             },
             {
-                img: "https://via.placeholder.com/400x300.png?text=Blouse+Manche+Courte",
+                img: "assets/img/Surblouse1.jpg",
                 nom: "Blouse Manche Courte",
                 categorie: "Vêtements Professionnels",
                 description: "Blouse légère idéale pour le travail en environnement médical.",
                 prix: "35,99 €"
             },
             {
-                img: "https://via.placeholder.com/400x300.png?text=Lunettes+Anti-Bleu",
+                img: "assets/img/Bonnet jetable.jpg",
                 nom: "Lunettes Anti-Bleu",
                 categorie: "Accessoires Médicaux",
                 description: "Protection des yeux contre la lumière bleue et la fatigue visuelle.",
                 prix: "24,50 €"
             },
             {
-                img: "https://via.placeholder.com/400x300.png?text=Bottines+Infirmières",
+                img: "assets/img/Bottine infirmière.jpeg",
                 nom: "Bottines Infirmières",
                 categorie: "Vêtements Professionnels",
                 description: "Chaussures de travail confortables et antidérapantes.",
                 prix: "59,90 €"
             },
             {
-                img: "https://via.placeholder.com/400x300.png?text=Thermomètre+Digital",
+                img: "assets/img/Thermomètre à mercure.jpg",
                 nom: "Thermomètre Digital",
                 categorie: "Consommables Médicaux",
                 description: "Thermomètre rapide et précis pour usage quotidien.",
                 prix: "15,90 €"
             },
             {
-                img: "https://via.placeholder.com/400x300.png?text=Masque+Chirurgical",
+                img: "assets/img/Bonnet jetable.jpg",
                 nom: "Masque Chirurgical",
                 categorie: "Consommables Médicaux",
                 description: "Lot de masques pour la protection en milieu médical.",
@@ -137,8 +137,63 @@
         container.innerHTML = fallback ? "<p class='error'>Impossible de charger le JSON, affichage depuis le repli local.</p>" : "";
 
         const categories = [...new Set(products.map(product => product.categorie))];
-        container.innerHTML += categories.map(category => {
-            const cards = products
+        
+        // Créer les boutons de filtrage
+        setupFilters(categories, products);
+        
+        // Afficher les produits
+        displayProducts(products, "all");
+
+        animateCards();
+        appearOnScroll();
+    }
+
+    function setupFilters(categories, products) {
+        const filterBtnContainer = document.querySelector("#filter-buttons");
+        if (!filterBtnContainer) return;
+
+        // Réinitialiser les boutons (garder le bouton "Tous les produits")
+        const buttons = filterBtnContainer.innerHTML = '<button class="filter-btn active" data-category="all">Tous les produits</button>';
+
+        // Ajouter un bouton pour chaque catégorie
+        categories.forEach(category => {
+            const btn = document.createElement("button");
+            btn.className = "filter-btn";
+            btn.setAttribute("data-category", category);
+            btn.textContent = category;
+            filterBtnContainer.appendChild(btn);
+        });
+
+        // Ajouter les événements de clic
+        const filterButtons = filterBtnContainer.querySelectorAll(".filter-btn");
+        filterButtons.forEach(btn => {
+            btn.addEventListener("click", () => {
+                // Mettre à jour l'état actif
+                filterButtons.forEach(b => b.classList.remove("active"));
+                btn.classList.add("active");
+
+                // Filtrer et afficher les produits
+                const selectedCategory = btn.getAttribute("data-category");
+                displayProducts(products, selectedCategory);
+            });
+        });
+    }
+
+    function displayProducts(products, selectedCategory = "all") {
+        const container = document.querySelector("#products-container");
+        if (!container) return;
+
+        // Filtrer les produits selon la catégorie
+        let filteredProducts = products;
+        if (selectedCategory !== "all") {
+            filteredProducts = products.filter(product => product.categorie === selectedCategory);
+        }
+
+        // Regrouper par catégorie pour l'affichage
+        const categories = [...new Set(filteredProducts.map(product => product.categorie))];
+        
+        container.innerHTML = categories.map(category => {
+            const cards = filteredProducts
                 .filter(product => product.categorie === category)
                 .map(product => `
                     <article class="card">
@@ -159,6 +214,10 @@
                 </section>
             `;
         }).join("");
+
+        if (filteredProducts.length === 0) {
+            container.innerHTML = "<p class='no-results'>Aucun produit ne correspond à ce filtre.</p>";
+        }
 
         animateCards();
         appearOnScroll();
