@@ -4,83 +4,118 @@
     "nom": "Tensiomètre Manuel",
     "categorie": "Matériel Médical",
     "description": "Appareil manuel pour mesurer la pression artérielle avec précision.",
-    "prix": "49,99 €"
+    "prix": "450 ht"
   },
   {
     "img": "assets/img/Tensiomètre manuel.jpg",
     "nom": "Tensiomètre Electronique",
     "categorie": "Matériel Médical",
     "description": "Mesure automatique de la tension artérielle en quelques secondes.",
-    "prix": "79,99 €"
+    "prix": "400 ht"
   },
   {
     "img": "assets/img/OxymètreSaturometre.jpg",
-    "nom": "Oxymètre",
+    "nom": "Oxymètre Bleu",
     "categorie": "Matériel Médical",
     "description": "Mesure la saturation en oxygène du sang et le pouls.",
-    "prix": "34,50 €"
+    "prix": "300 ht"
+  },
+  {
+    "img": "assets/img/OxymètreSaturometre.jpg",
+    "nom": "Oxymètre Noir",
+    "categorie": "Matériel Médical",
+    "description": "Mesure la saturation en oxygène du sang et le pouls.",
+    "prix": "300 ht"
   },
   {
     "img": "assets/img/Penlight rechargeable.jpg",
-    "nom": "Penlight Médical",
+    "nom": "Penlight Rechargeable",
     "categorie": "Accessoires Médicaux",
-    "description": "Lampe compacte pour les examens médicaux de précision.",
-    "prix": "12,00 €"
+    "description": "Lampe compacte rechargeable pour les examens médicaux de précision.",
+    "prix": "270 ht"
+  },
+  {
+    "img": "assets/img/Penlight rechargeable.jpg",
+    "nom": "Penlight à Pile",
+    "categorie": "Accessoires Médicaux",
+    "description": "Lampe compacte à pile pour les examens médicaux.",
+    "prix": "150 ht"
   },
   {
     "img": "assets/img/Otoscope.jpg",
-    "nom": "Stéthoscope Double Foyer",
+    "nom": "Stéthoscope à Double Foyer",
     "categorie": "Accessoires Médicaux",
     "description": "Instrument professionnel pour écouter les sons du cœur et des poumons.",
-    "prix": "89,90 €"
+    "prix": "300 ht"
   },
   {
     "img": "assets/img/Glucometre complet.jpg",
     "nom": "Glucomètre Complet",
     "categorie": "Équipements Médicaux",
     "description": "Kit complet pour mesurer la glycémie avec résultats rapides.",
-    "prix": "69,90 €"
+    "prix": "650 ht"
   },
   {
     "img": "assets/img/Surblouse.jpg",
     "nom": "Blouse Manche Longue",
     "categorie": "Vêtements Professionnels",
     "description": "Blouse médicale confortable et résistante pour usage quotidien.",
-    "prix": "39,99 €"
+    "prix": "350 ht"
   },
   {
     "img": "assets/img/Surblouse1.jpg",
     "nom": "Blouse Manche Courte",
     "categorie": "Vêtements Professionnels",
     "description": "Blouse légère idéale pour le travail en environnement médical.",
-    "prix": "35,99 €"
-  },
-  {
-    "img": "assets/img/Bonnet jetable.jpg",
-    "nom": "Lunettes Anti-Bleu",
-    "categorie": "Accessoires Médicaux",
-    "description": "Protection des yeux contre la lumière bleue et la fatigue visuelle.",
-    "prix": "24,50 €"
+    "prix": "300 ht"
   },
   {
     "img": "assets/img/Bottine infirmière.jpeg",
-    "nom": "Bottines Infirmières",
+    "nom": "Bottine Infirmière",
     "categorie": "Vêtements Professionnels",
     "description": "Chaussures de travail confortables et antidérapantes.",
-    "prix": "59,90 €"
+    "prix": "700 ht"
+  },
+  {
+    "img": "assets/img/Otoscope.jpg",
+    "nom": "Otoscope",
+    "categorie": "Accessoires Médicaux",
+    "description": "Instrument pour l'examen du canal auditif et du tympan.",
+    "prix": "300 ht"
+  },
+  {
+    "img": "assets/img/Surblouse.jpg",
+    "nom": "Surblouse Lavable",
+    "categorie": "Vêtements Professionnels",
+    "description": "Surblouse lavable et réutilisable pour la protection.",
+    "prix": "100 ht"
+  },
+  {
+    "img": "assets/img/Gants médical.jpg",
+    "nom": "Gants Médicaux",
+    "categorie": "Consommables Médicaux",
+    "description": "Lot de 50 paires de gants médicaux à usage professionnel.",
+    "prix": "250 ht"
   },
   {
     "img": "assets/img/Thermomètre à mercure.jpg",
     "nom": "Thermomètre Digital",
     "categorie": "Consommables Médicaux",
     "description": "Thermomètre rapide et précis pour usage quotidien.",
-    "prix": "15,90 €"
+    "prix": "100 ht"
   },
   {
     "img": "assets/img/Bonnet jetable.jpg",
-    "nom": "Masque Chirurgical",
+    "nom": "Bonnet Médical Jetable",
     "categorie": "Consommables Médicaux",
-    "description": "Lot de masques pour la protection en milieu médical.",
-    "prix": "9,99 €"
+    "description": "Bonnets jetables pour la protection en milieu médical (unité).",
+    "prix": "10 ht"
+  },
+  {
+    "img": "assets/img/Thermomètre à mercure.jpg",
+    "nom": "Thermomètre à Mercure",
+    "categorie": "Consommables Médicaux",
+    "description": "Thermomètre classique à mercure pour mesure de température (unité).",
+    "prix": "120 ht"
   }
 ]
